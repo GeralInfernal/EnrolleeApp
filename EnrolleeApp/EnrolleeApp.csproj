@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{734F3570-C99C-4E5C-9777-98828C844108}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EnrolleeApp</RootNamespace>
+    <AssemblyName>EnrolleeApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>69442.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Connector\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Abit\Form_Add_Abit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Abit\Form_Add_Abit.Designer.cs">
+      <DependentUpon>Form_Add_Abit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Discipline\Form_Change_Discipline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Discipline\Form_Change_Discipline.Designer.cs">
+      <DependentUpon>Form_Change_Discipline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Discipline\Form_Delete_Discipline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Discipline\Form_Delete_Discipline.Designer.cs">
+      <DependentUpon>Form_Delete_Discipline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Komis\Form_Change_Komis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Komis\Form_Change_Komis.Designer.cs">
+      <DependentUpon>Form_Change_Komis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parent\Form_Add_Parent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parent\Form_Add_Parent.Designer.cs">
+      <DependentUpon>Form_Add_Parent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Status\Form_Add_Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Status\Form_Add_Status.Designer.cs">
+      <DependentUpon>Form_Add_Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Military\Form_Add_Military.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Military\Form_Add_Military.Designer.cs">
+      <DependentUpon>Form_Add_Military.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\Form_Add_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\Form_Add_Base.Designer.cs">
+      <DependentUpon>Form_Add_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Discipline\Form_Add_Discipline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Discipline\Form_Add_Discipline.Designer.cs">
+      <DependentUpon>Form_Add_Discipline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Komis\Form_Add_Komis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Komis\Form_Add_Komis.Designer.cs">
+      <DependentUpon>Form_Add_Komis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lang\Form_Add_Lang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Lang\Form_Add_Lang.Designer.cs">
+      <DependentUpon>Form_Add_Lang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Polity\Form_Add_Polity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Polity\Form_Add_Polity.Designer.cs">
+      <DependentUpon>Form_Add_Polity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Spec\Form_Add_Spec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Spec\Form_Add_Spec.Designer.cs">
+      <DependentUpon>Form_Add_Spec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parent\Form_Change_Parent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parent\Form_Change_Parent.Designer.cs">
+      <DependentUpon>Form_Change_Parent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Abit\Form_Change_Abit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Abit\Form_Change_Abit.Designer.cs">
+      <DependentUpon>Form_Change_Abit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Abit\Form_Delete_Abit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Abit\Form_Delete_Abit.Designer.cs">
+      <DependentUpon>Form_Delete_Abit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\Form_Change_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\Form_Change_Base.Designer.cs">
+      <DependentUpon>Form_Change_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\Form_Delete_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\Form_Delete_Base.Designer.cs">
+      <DependentUpon>Form_Delete_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Komis\Form_Delete_Komis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Komis\Form_Delete_Komis.Designer.cs">
+      <DependentUpon>Form_Delete_Komis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lang\Form_Change_Lang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Lang\Form_Change_Lang.Designer.cs">
+      <DependentUpon>Form_Change_Lang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lang\Form_Delete_Lang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Lang\Form_Delete_Lang.Designer.cs">
+      <DependentUpon>Form_Delete_Lang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Military\Form_Change_Military.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Military\Form_Change_Military.Designer.cs">
+      <DependentUpon>Form_Change_Military.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Military\Form_Delete_Military.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Military\Form_Delete_Military.Designer.cs">
+      <DependentUpon>Form_Delete_Military.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parent\Form_Delete_Parent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parent\Form_Delete_Parent.Designer.cs">
+      <DependentUpon>Form_Delete_Parent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Polity\Form_Change_Polity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Polity\Form_Change_Polity.Designer.cs">
+      <DependentUpon>Form_Change_Polity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Polity\Form_Delete_Polity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Polity\Form_Delete_Polity.Designer.cs">
+      <DependentUpon>Form_Delete_Polity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Spec\Form_Change_Spec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Spec\Form_Change_Spec.Designer.cs">
+      <DependentUpon>Form_Change_Spec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Spec\Form_Delete_Spec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Spec\Form_Delete_Spec.Designer.cs">
+      <DependentUpon>Form_Delete_Spec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Status\Form_Change_Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Status\Form_Change_Status.Designer.cs">
+      <DependentUpon>Form_Change_Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Status\Form_Delete_Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Status\Form_Delete_Status.Designer.cs">
+      <DependentUpon>Form_Delete_Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Decision\Form_Add_Decision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decision\Form_Add_Decision.Designer.cs">
+      <DependentUpon>Form_Add_Decision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Decision\Form_Delete_Decision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decision\Form_Delete_Decision.Designer.cs">
+      <DependentUpon>Form_Delete_Decision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Decision\Form_Change_Decision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decision\Form_Change_Decision.Designer.cs">
+      <DependentUpon>Form_Change_Decision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Groups\Form_Add_Groups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Groups\Form_Add_Groups.Designer.cs">
+      <DependentUpon>Form_Add_Groups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Groups\Form_Change_Groups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Groups\Form_Change_Groups.Designer.cs">
+      <DependentUpon>Form_Change_Groups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Groups\Form_Delete_Groups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Groups\Form_Delete_Groups.Designer.cs">
+      <DependentUpon>Form_Delete_Groups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\ChangePass.Designer.cs">
+      <DependentUpon>ChangePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewers\TableViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableViewers\TableViewer.Designer.cs">
+      <DependentUpon>TableViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mysql_db.cs" />
+    <Compile Include="EventLogs\EventLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventLogs\EventLog.Designer.cs">
+      <DependentUpon>EventLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sqlce_db.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EventLogs\LocalEventLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventLogs\LocalEventLog.Designer.cs">
+      <DependentUpon>LocalEventLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presets\AddPreset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presets\AddPreset.Designer.cs">
+      <DependentUpon>AddPreset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presets\Presets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presets\Presets.Designer.cs">
+      <DependentUpon>Presets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\SetConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\SetConnection.Designer.cs">
+      <DependentUpon>SetConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presets\UpdatePreset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presets\UpdatePreset.Designer.cs">
+      <DependentUpon>UpdatePreset.cs</DependentUpon>
+    </Compile>
+    <Content Include="69442.ico" />
+    <Content Include="CREATE DATABASE\CREATE DATABASE.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TEST\Insert all test data.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_military.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_parent.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_status.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_decision.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_spec.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_abit.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_statement.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_table.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\report_group.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\filter_data.ico" />
+    <None Include="Resources\addgreen.ico" />
+    <None Include="Resources\w512h5121377940132185095settingsstreamline.png" />
+    <None Include="Resources\i.jpg" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Abit\Form_Add_Abit.resx">
+      <DependentUpon>Form_Add_Abit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Abit\Form_Change_Abit.resx">
+      <DependentUpon>Form_Change_Abit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Abit\Form_Delete_Abit.resx">
+      <DependentUpon>Form_Delete_Abit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\Form_Add_Base.resx">
+      <DependentUpon>Form_Add_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\Form_Change_Base.resx">
+      <DependentUpon>Form_Change_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\Form_Delete_Base.resx">
+      <DependentUpon>Form_Delete_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Decision\Form_Add_Decision.resx">
+      <DependentUpon>Form_Add_Decision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Decision\Form_Delete_Decision.resx">
+      <DependentUpon>Form_Delete_Decision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Decision\Form_Change_Decision.resx">
+      <DependentUpon>Form_Change_Decision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Discipline\Form_Add_Discipline.resx">
+      <DependentUpon>Form_Add_Discipline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Discipline\Form_Change_Discipline.resx">
+      <DependentUpon>Form_Change_Discipline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Discipline\Form_Delete_Discipline.resx">
+      <DependentUpon>Form_Delete_Discipline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Groups\Form_Add_Groups.resx">
+      <DependentUpon>Form_Add_Groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Groups\Form_Change_Groups.resx">
+      <DependentUpon>Form_Change_Groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Groups\Form_Delete_Groups.resx">
+      <DependentUpon>Form_Delete_Groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Komis\Form_Add_Komis.resx">
+      <DependentUpon>Form_Add_Komis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Komis\Form_Change_Komis.resx">
+      <DependentUpon>Form_Change_Komis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Komis\Form_Delete_Komis.resx">
+      <DependentUpon>Form_Delete_Komis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Lang\Form_Add_Lang.resx">
+      <DependentUpon>Form_Add_Lang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Lang\Form_Change_Lang.resx">
+      <DependentUpon>Form_Change_Lang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Lang\Form_Delete_Lang.resx">
+      <DependentUpon>Form_Delete_Lang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Military\Form_Change_Military.resx">
+      <DependentUpon>Form_Change_Military.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Military\Form_Delete_Military.resx">
+      <DependentUpon>Form_Delete_Military.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Parent\Form_Add_Parent.resx">
+      <DependentUpon>Form_Add_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Parent\Form_Delete_Parent.resx">
+      <DependentUpon>Form_Delete_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Polity\Form_Add_Polity.resx">
+      <DependentUpon>Form_Add_Polity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Polity\Form_Change_Polity.resx">
+      <DependentUpon>Form_Change_Polity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Polity\Form_Delete_Polity.resx">
+      <DependentUpon>Form_Delete_Polity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Spec\Form_Add_Spec.resx">
+      <DependentUpon>Form_Add_Spec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Spec\Form_Change_Spec.resx">
+      <DependentUpon>Form_Change_Spec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Spec\Form_Delete_Spec.resx">
+      <DependentUpon>Form_Delete_Spec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Status\Form_Add_Status.resx">
+      <DependentUpon>Form_Add_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Military\Form_Add_Military.resx">
+      <DependentUpon>Form_Add_Military.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Parent\Form_Change_Parent.resx">
+      <DependentUpon>Form_Change_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Status\Form_Change_Status.resx">
+      <DependentUpon>Form_Change_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Status\Form_Delete_Status.resx">
+      <DependentUpon>Form_Delete_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\ChangePass.resx">
+      <DependentUpon>ChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableViewers\TableViewer.resx">
+      <DependentUpon>TableViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventLogs\EventLog.resx">
+      <DependentUpon>EventLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventLogs\LocalEventLog.resx">
+      <DependentUpon>LocalEventLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presets\AddPreset.resx">
+      <DependentUpon>AddPreset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presets\Presets.resx">
+      <DependentUpon>Presets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\SetConnection.resx">
+      <DependentUpon>SetConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presets\UpdatePreset.resx">
+      <DependentUpon>UpdatePreset.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="EnrolleeAppHelp.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SSCE">
+      <Guid>{CE4AACFA-3CFD-4028-B2D9-F272314F07C8}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LocalDB.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\лого.jpg" />
+    <None Include="Resources\setting.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
